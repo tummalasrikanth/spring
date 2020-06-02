@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Interface Injection start -->
+	<bean id="employeeService" class="com.tummala.service.impl.EmployeeServiceImpl" scope="session"/>
+	<!-- Interface Injection end -->
+
+	<!-- Setter Injection start -->
+	<bean id="employeeSetterInjection" class="com.tummala.EmployeeSetterInjection">
+		<property name="employeeService" ref="employeeService" />
+		<property name="address" value="vemuru" />
+	</bean>
+	<!-- Setter Injection end -->
+
+	<!-- Constructor Injection start -->
+	<bean id="employeeConstructorInjection" class="com.tummala.EmployeeConstructorInjection">
+		<constructor-arg name="address" value="vemuru" />
+		<constructor-arg name="employeeService" ref="employeeService" />
+	</bean>
+	<!-- Constructor Injection end -->
+
+
+</beans>
